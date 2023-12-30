@@ -1,0 +1,20 @@
+sudo apt-get purge snapd
+# These are handled by purging snapd and shouldn't be needed, 
+# but listed here just in case.
+#   rm -rf ~/snap                                      
+#   sudo rm -rf /snap                                  
+#   sudo rm -rf /var/snap                              
+#   sudo rm -rf /var/lib/snapd
+sudo apt autoremove
+sudo apt clean
+
+
+
+no-snap.pref
+
+sudo -H nano /etc/apt/preferences.d/no-snap.pref
+    # To install snapd, specify its version with 'apt install snapd=VERSION'
+    # where VERSION is the version of the snapd package you want to install.
+    Package: snapd
+    Pin: release a=*
+    Pin-Priority: -10
